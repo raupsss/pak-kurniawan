@@ -1,10 +1,4 @@
-<?php
-include('config.php');
 
-$sql = "SELECT * FROM mahasiswa";
-$query = mysqli_query($koneksi, $sql);
-$siswa = mysqli_fetch_array($query);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -233,9 +227,6 @@ $siswa = mysqli_fetch_array($query);
         <div class="section-title" data-aos="fade-up">
           <h2>Data Mahasiswa</h2>
         </div>
-        <?php
-        include("config.php");
-        ?>
         <table border="1" align="Center">
           <thead>
             <tr>
@@ -251,6 +242,12 @@ $siswa = mysqli_fetch_array($query);
             </tr>
           </thead>
           <?php
+          
+          include('config.php');
+          
+          $sql = "SELECT * FROM mahasiswa";
+          $query = mysqli_query($koneksi, $sql);
+          
           while ($siswa = mysqli_fetch_array($query)) {
             echo "<tr>";
             echo "<td>".$siswa['nim'] . "</td>";
@@ -264,8 +261,8 @@ $siswa = mysqli_fetch_array($query);
             echo "<td>".$siswa['alamat']."</td>";
 
             echo "<td>";
-            echo "<a href='form-edit.php?nim=" . $siswa['nim'] . "'>Edit</a> | ";
-            echo "<a href='hapus.php?nim=" . $siswa['nim'] . "'>Hapus</a>";
+            echo "<a href='form-edit.php?nim=" .$siswa['nim'] . "'>Edit</a> | ";
+            echo "<a href='hapus.php?nim=" .$siswa['nim'] . "'>Hapus</a>";
             echo "</td>";
 
             echo "</tr>";
@@ -273,30 +270,9 @@ $siswa = mysqli_fetch_array($query);
           ?>
         </table>
 
-        <!--div class="row content">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
-          </div>
-        </div>
-
-      </div-->
-    </section><!-- End About Us Section -->
+        
+    </section>
+    <!-- End About Us Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
@@ -541,12 +517,12 @@ $siswa = mysqli_fetch_array($query);
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+              <?php foreach ($query as $sis) : ?>
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
+                  <h3><?= $sis['nama_lengkap']; ?></h3>
                   <h4>Ceo &amp; Founder</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -555,71 +531,9 @@ $siswa = mysqli_fetch_array($query);
                   </p>
                 </div>
               </div>
+              <? ?>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <?php
-                  $sql = "SELECT * FROM mahasiswa where jurusan='Manajemen'"
-                  ?>
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            <?php endforeach; ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
