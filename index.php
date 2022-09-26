@@ -227,18 +227,18 @@
         <div class="section-title" data-aos="fade-up">
           <h2>Data Mahasiswa</h2>
         </div>
-        <table border="1" align="Center">
+        <table align="Center" style="height:fit-content; border:1px solid black; width:fit-content; text-align:center">
           <thead>
             <tr>
-              <th>Nim</th>
-              <th>Nama</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal lahir</th>
-              <th>Jurusan</th>
-              <th>No HP</th>
-              <th>Email</th>
-              <th>Alamat</th>
-              <th>Setting</th>
+              <th style="border: 1px solid black;">Nim</th>
+              <th style="border: 1px solid black;">Nama</th>
+              <th style="border: 1px solid black;">Tempat Lahir</th>
+              <th style="border: 1px solid black;">Tanggal lahir</th>
+              <th style="border: 1px solid black;">Jurusan</th>
+              <th style="border: 1px solid black;">No HP</th>
+              <th style="border: 1px solid black;">Email</th>
+              <th style="border: 1px solid black;">Alamat</th>
+              <th style="border: 1px solid black;">Setting</th>
             </tr>
           </thead>
           <?php
@@ -250,15 +250,14 @@
           
           while ($siswa = mysqli_fetch_array($query)) {
             echo "<tr>";
-            echo "<td>".$siswa['nim'] . "</td>";
-            
-            echo "<td>".$siswa['nama_lengkap']."</td>";
-            echo "<td>".$siswa['tempat_lahir']."</td>";
-            echo "<td>".$siswa['tanggal_lahir']."</td>";
-            echo "<td>".$siswa['jurusan']."</td>";
-            echo "<td>".$siswa['no_hp']."</td>";
-            echo "<td>".$siswa['email']."</td>";
-            echo "<td>".$siswa['alamat']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['nim'] . "</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['nama_lengkap']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['tempat_lahir']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['tanggal_lahir']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['jurusan']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['no_hp']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['email']."</td>";
+            echo "<td style='border: 1px solid black;'>".$siswa['alamat']."</td>";
 
             echo "<td>";
             echo "<a href='form-edit.php?nim=" .$siswa['nim'] . "'>Edit</a> | ";
