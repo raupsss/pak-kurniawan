@@ -15,4 +15,6 @@ if( isset($_GET['nim']) ){
 } else {
  die("akses dilarang...");
 }
+
+
 ?>

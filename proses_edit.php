@@ -17,9 +17,13 @@ if (isset($_POST['simpan'])) {
 
     if ($query) {
         header('Location: index.php');
-    } else {
-        die("gagal edit");
     }
-} else {
+    if (isset($_POST['batalkan_perubahan'])) {
+        header('Location: index.php');
+    }
+}
+else {
     die("Akses dilarang...");
 }
+
+ 
