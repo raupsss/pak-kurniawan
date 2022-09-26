@@ -1,3 +1,10 @@
+<?php
+include('config.php');
+
+$sql = "SELECT * FROM mahasiswa";
+$query = mysqli_query($koneksi, $sql);
+$siswa = mysqli_fetch_array($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -182,28 +189,39 @@
             </div>
           </div-->
 
-          <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="tambah.php" method="post" role="form">
-              <div class="form-group">
-                <input type="number" name="nim" class="form-control" id="nim" placeholder="NIM" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Jurusan" required>
-              </div>
-              <div class="form-group">
-              <input type="text" class="form-control" name="alamat" id="email" placeholder="Alamat">
-              </div>
-              <div class="form_group">
-                <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal-lahir">
-              </div>
-              <div class="text-center"><button type="submit" name="daftar" value="daftar">Daftar</button></div>
-            </form>
-          </div>
-
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <form action="tambah.php" method="post" role="form">
+            <div class="form-group">
+              <input type="number" name="nim" class="form-control" id="nim" placeholder="NIM" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama Lengkap">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required>
+            </div>
+            <div class="form-group">
+              <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir">
+            </div>
+            <div class="form_group">
+              <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Jurusan">
+            </div>
+            <div class="form_group">
+              <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Nomer Handphone">
+            </div>
+            <div class="form_group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="form_group">
+              <textarea name="alamat" id="alamat" cols="50%" placeholder="Alamat Lengkap"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" name="daftar" value="daftar">Daftar</button>
+            </div>
+          </form>
         </div>
+
+      </div>
 
       </div>
     </section><!-- End Contact Section -->
@@ -223,26 +241,34 @@
             <tr>
               <th>Nim</th>
               <th>Nama</th>
+              <th>Tempat Lahir</th>
+              <th>Tanggal lahir</th>
               <th>Jurusan</th>
-              <th>Tanggal_lahir</th>
-              <th>tindakan</th>
+              <th>No HP</th>
+              <th>Email</th>
+              <th>Alamat</th>
+              <th>Setting</th>
             </tr>
           </thead>
           <?php
-          $sql = "select * FROM mahasiswa";
-          $query = mysqli_query($koneksi, $sql);
-          while($siswa= mysqli_fetch_array($query)){
+          while ($siswa = mysqli_fetch_array($query)) {
             echo "<tr>";
-            echo "<td>".$siswa['nim']."</td>";
+            echo "<td>".$siswa['nim'] . "</td>";
+            
             echo "<td>".$siswa['nama_lengkap']."</td>";
-            echo "<td>".$siswa['jurusan']."</td>";
+            echo "<td>".$siswa['tempat_lahir']."</td>";
             echo "<td>".$siswa['tanggal_lahir']."</td>";
+            echo "<td>".$siswa['jurusan']."</td>";
+            echo "<td>".$siswa['no_hp']."</td>";
+            echo "<td>".$siswa['email']."</td>";
+            echo "<td>".$siswa['alamat']."</td>";
 
             echo "<td>";
-            echo "<a href='form-edit.php?nim=".$siswa['nim']."'>Edit</a> | ";
-            echo "<a href='hapus.php?nim=".$siswa['nim']."'>Hapus</a>";
+            echo "<a href='form-edit.php?nim=" . $siswa['nim'] . "'>Edit</a> | ";
+            echo "<a href='hapus.php?nim=" . $siswa['nim'] . "'>Hapus</a>";
             echo "</td>";
-            
+
+            echo "</tr>";
           }
           ?>
         </table>
@@ -1037,7 +1063,7 @@
               <div class="form-group">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
-             
+
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
