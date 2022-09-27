@@ -18,12 +18,9 @@ if (isset($_POST['simpan'])) {
     if ($query) {
         header('Location: index.php');
     }
-    if (isset($_POST['batalkan_perubahan'])) {
-        header('Location: index.php');
-    }
 }
-else {
+else if (isset($_POST['batal_perubahan'])) {
+    header('Location: index.php');
+} else {
     die("Akses dilarang...");
 }
-
- 
