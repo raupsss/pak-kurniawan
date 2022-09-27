@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,7 +141,7 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
-      <div class="container">
+      <div class="container" align="center">
 
         <div class="section-title" data-aos="fade-up">
           <h2>Pendaftaran</h2>
@@ -186,31 +185,31 @@
         <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
           <form action="tambah.php" method="post" role="form">
             <div class="form-group">
-              <input type="number" name="nim" class="form-control" id="nim" placeholder="NIM" required>
+              <input style="margin-bottom: 10px;" type="number" name="nim" class="form-control" id="nim" placeholder="NIM" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama Lengkap">
+              <input style="margin-bottom: 10px;" type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama Lengkap">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required>
+              <input style="margin-bottom: 10px;" type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required>
             </div>
             <div class="form-group">
-              <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir">
+              <input style="margin-bottom: 10px;" type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir">
             </div>
             <div class="form_group">
-              <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Jurusan">
+              <input style="margin-bottom: 10px;" type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Jurusan">
             </div>
             <div class="form_group">
-              <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Nomer Handphone">
+              <input style="margin-bottom: 10px;" type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Nomer Handphone">
             </div>
             <div class="form_group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+              <input style="margin-bottom: 10px;" type="email" class="form-control" name="email" id="email" placeholder="Email">
             </div>
             <div class="form_group">
-              <textarea name="alamat" id="alamat" cols="50%" placeholder="Alamat Lengkap"></textarea>
+              <textarea style="border-radius: 10px;" name="alamat" id="alamat" cols="51%" placeholder="Alamat Lengkap"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" name="daftar" value="daftar">Daftar</button>
+              <button style="background: #3498db; padding: 8px 25px; margin-left: 30px; border-radius: 50px; color: #fff; border:0;" type="submit" name="daftar" value="daftar">Daftar</button>
             </div>
           </form>
         </div>
@@ -227,41 +226,41 @@
         <div class="section-title" data-aos="fade-up">
           <h2>Data Mahasiswa</h2>
         </div>
-        <table align="Center" style="height:fit-content; border:1px solid black; width:fit-content; text-align:center">
+        <table align="Center" style="height:fit-content; border:1px solid black; width:fit-content; text-align:center;">
           <thead>
             <tr>
-              <th style="border: 1px solid black;">Nim</th>
-              <th style="border: 1px solid black;">Nama</th>
-              <th style="border: 1px solid black;">Tempat Lahir</th>
-              <th style="border: 1px solid black;">Tanggal lahir</th>
-              <th style="border: 1px solid black;">Jurusan</th>
-              <th style="border: 1px solid black;">No HP</th>
-              <th style="border: 1px solid black;">Email</th>
-              <th style="border: 1px solid black;">Alamat</th>
-              <th style="border: 1px solid black;">Setting</th>
+              <th style="border: 1px solid black; padding: 20px;">Nim</th>
+              <th style="border: 1px solid black; padding: 20px;">Nama</th>
+              <th style="border: 1px solid black; padding: 20px;">Tempat Lahir</th>
+              <th style="border: 1px solid black; padding: 20px;">Tanggal lahir</th>
+              <th style="border: 1px solid black; padding: 20px;">Jurusan</th>
+              <th style="border: 1px solid black; padding: 20px;">No HP</th>
+              <th style="border: 1px solid black; padding: 20px;">Email</th>
+              <th style="border: 1px solid black; padding: 20px;">Alamat</th>
+              <th style="border: 1px solid black; padding: 20px;">Setting</th>
             </tr>
           </thead>
           <?php
-          
+
           include('config.php');
-          
+
           $sql = "SELECT * FROM mahasiswa";
           $query = mysqli_query($koneksi, $sql);
-          
+
           while ($siswa = mysqli_fetch_array($query)) {
             echo "<tr>";
-            echo "<td style='border: 1px solid black;'>".$siswa['nim'] . "</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['nama_lengkap']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['tempat_lahir']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['tanggal_lahir']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['jurusan']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['no_hp']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['email']."</td>";
-            echo "<td style='border: 1px solid black;'>".$siswa['alamat']."</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['nim'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['nama_lengkap'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['tempat_lahir'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['tanggal_lahir'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['jurusan'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['no_hp'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['email'] . "</td>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>" . $siswa['alamat'] . "</td>";
 
-            echo "<td>";
-            echo "<a href='form-edit.php?nim=" .$siswa['nim'] . "'>Edit</a> | ";
-            echo "<a href='hapus.php?nim=" .$siswa['nim'] . "'>Hapus</a>";
+            echo "<td style='border: 1px solid black; padding: 20px;'>";
+            echo "<a href='form-edit.php?nim=" . $siswa['nim'] . "'>Edit</a> | ";
+            echo "<a href='hapus.php?nim=" . $siswa['nim'] . "'>Hapus</a>";
             echo "</td>";
 
             echo "</tr>";
@@ -269,7 +268,7 @@
           ?>
         </table>
 
-        
+
     </section>
     <!-- End About Us Section -->
 
@@ -516,22 +515,22 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-              <?php foreach ($query as $sis) : ?>
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3><?= $sis['nama_lengkap']; ?></h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
+            <?php foreach ($query as $sis) : ?>
+              <div class="swiper-slide">
+                <div class="testimonial-wrap">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                    <h3><?= $sis['nama_lengkap']; ?></h3>
+                    <h4>Ceo &amp; Founder</h4>
+                    <p>
+                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <? ?>
-            </div><!-- End testimonial item -->
+                <? ?>
+              </div><!-- End testimonial item -->
             <?php endforeach; ?>
           </div>
           <div class="swiper-pagination"></div>
