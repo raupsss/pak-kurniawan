@@ -57,8 +57,8 @@ if (mysqli_num_rows($query) < 1) {
                 <label for="email">Email :</label>
                 <input type="email" name="email" id="email" value="<?php echo $siswa['email'] ?>">
             </p>
-            <button type="submit" name="simpan">Simpan Perubahan</button>
-            <button type="submit" name="batal_perubahan">Batalkan Perubahan</button>
+            <button style="background: #3498db; padding: 8px 25px; margin-left: 0px; border-radius: 50px; color: #fff; border:0;" type="submit" name="simpan">Simpan Perubahan</button>
+            <button style="background: #3498db; padding: 8px 25px; margin-left: 0px; border-radius: 50px; color: #fff; border:0;" type="submit" name="batal_perubahan">Batalkan Perubahan</button>
         </fieldset>
     </form>
 </body>
